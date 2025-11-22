@@ -14,11 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read #This is required for actions/checkout
-    env:
-      DB_USER_SUPABASE: ${{ secrets.DB_USER_SUPABASE }}
-      DB_PWD_SUPABASE: ${{ secrets.DB_PWD_SUPABASE }}
-
-
 
     steps:
       - uses: actions/checkout@v4
@@ -54,9 +49,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_A1B33C30B8004B5C85D23985BABCB17C }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_814E9F1F836649518996C6CE411C964C }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_595B64CE169D477CAFC671A71AD4B3C9 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_776B3950CC164EFF8457ECEE92BC65AD }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B60A34BEEF134BE9B3C847E4DE74F859 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_393E76DD04E34FBC9FCEE810B6DF1CF0 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -65,7 +60,4 @@ jobs:
           app-name: 'app3ISW2'
           slot-name: 'Production'
           package: '*.jar'
-
           
-
-
